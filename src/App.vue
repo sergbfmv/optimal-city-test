@@ -143,6 +143,7 @@ span {
   font-size: 14px;
   box-shadow: rgba(0, 0, 0, 0.15) 0 12px 24px 0;
   overflow: scroll;
+  overflow-x: hidden;
 }
 
 .bot-messages {
