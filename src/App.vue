@@ -5,8 +5,8 @@ import fbIcon from "./components/icons/fb.png"
 import xIcon from "./components/icons/x-icon.svg"
 import {ref} from "vue";
 
-const message = ref(['Бот: Привет! Что я могу для Вас сделать?'])
-const phrase = ref('')
+const messages = ref<string[]>(['Бот: Привет! Что я могу для Вас сделать?'])
+const phrase = ref<string>('')
 
 const onClickHandler = (text: string) => {
   const userMessage = text;
@@ -40,7 +40,7 @@ const onClickHandler = (text: string) => {
 };
 
 const addBotResponse = (response: string) => {
-  message.value.push(response);
+  messages.value.push(response);
 };
 </script>
 
@@ -64,7 +64,7 @@ const addBotResponse = (response: string) => {
     <!--    <TheWelcome />-->
     <div class="bot-wrapper">
       <div class="bot-display">
-        <div v-for="msg in message" class="bot-messages">
+        <div v-for="msg in messages" class="bot-messages">
           <template v-if="msg.startsWith('Бот: ')">
             <img :src="botAva" alt="bot avatar" class="bot-avatar">
             <p class="text left">{{ msg }}</p>
